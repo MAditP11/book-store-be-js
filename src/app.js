@@ -1,19 +1,18 @@
-require('express-async-errors')
-const express = require('express')
-const helmet = require('helmet')
-const cors = require('cors')
-const morgan = require('morgan')
-const { errorHandler } = require('./middlewares/error.middleware')
+const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
+const morgan = require("morgan");
+const healthRoutes = require("./routes/health.routes")
 
-const app = express()
+const app = express();
 
-app.use(helmet())
-app.use(cors())
-app.use(express.json())
-app.use(morgan('dev'))
+app.use(cors());
+app.use(helmet());
+app.use(morgan("dev"));
 
-app.use('/api/auth', require('./modules/auth/auth.route'))
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
-app.use(errorHandler)
+app.use("/api/health", healthRoutes)
 
-module.exports = app
+module.exports = app;
