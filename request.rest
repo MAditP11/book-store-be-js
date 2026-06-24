@@ -1,8 +1,20 @@
-POST http://localhost:5000/register
+POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-    "name": "tio Robila",
-    "email": "tiogmail@gmail.com",
-    "password": "tio123",
+    "name": "adit",
+    "email": "aditprinansyah@gmail.com",
+    "password": "1234MaPt"
+}
+
+######
+GET http://localhost:5000/api/auth/verify-email?token=33106555757c138fc4c76a37e46c993e0858681f611ff3f08e8d5ad283c670b5
+
+####
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "aditprinansyah@gmail.com",
+    "password": "1234MaPt"
 }

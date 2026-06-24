@@ -6,6 +6,12 @@ const registerValidation = [
     body("password").notEmpty().withMessage("Password is required").isLength({min:8}).withMessage("Password minimum 8 characters"),
 ];
 
+const loginValidation = [
+    body("email").notEmpty().withMessage("Email is required").isEmail().withMessage("Invalid Email"),
+    body("password").notEmpty().withMessage("Password is required"),
+]
+
 module.exports = {
     registerValidation,
+    loginValidation
 }
